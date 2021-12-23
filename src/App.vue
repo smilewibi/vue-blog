@@ -60,7 +60,7 @@
       <v-app-bar-nav-icon
         @click.stop="drawer = !drawer"
       ></v-app-bar-nav-icon>
-      <v-toolbar-title>TwiwiuApp</v-toolbar-title>
+      <v-toolbar-title>Blog-App</v-toolbar-title>
       <v-spacer></v-spacer>
     </v-app-bar>
 
