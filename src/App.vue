@@ -86,6 +86,7 @@ export default {
   name: 'App',
   components: {
     Alert: () => import('./components/Alert.vue'),
+    // Dialog: () => import('./components/Dialog.vue'),
   },
   data: () => ({
     drawer: false,
@@ -108,15 +109,17 @@ export default {
     },
 
     login() {
-      this.guest = false;
-      this.setAlert({
-        status: true,
-        color: 'success',
-        text: 'Anda berhasil login',
-      });
+      // this.guest = false;
+      // this.setAlert({
+      //   status: true,
+      //   color: 'success',
+      //   text: 'Anda berhasil login',
+      // });
+      this.setDialogComponent({'component' : 'login'})
     },
     ...mapActions({
       setAlert: 'alert/set',
+      setDialogComponent: 'dialog/setComponent'
     }),
   },
   mounted() {
