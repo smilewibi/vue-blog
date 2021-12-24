@@ -33,7 +33,7 @@
 
       <v-card-actions
         ><v-dialog v-model="dialog" persistent max-width="600px">
-          <template v-slot:activator="{ on, attrs }">
+          <template v-if="!guest" v-slot:activator="{ on, attrs }">
             <v-btn
               dark
               v-bind="attrs"
@@ -128,6 +128,7 @@
         </v-dialog>
 
         <v-btn
+          v-if="!guest"
           class="ma-2"
           color="error"
           @click="removeData(blog.id)"
