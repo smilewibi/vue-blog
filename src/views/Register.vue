@@ -3,7 +3,7 @@
     <v-row justify="center">
       <v-col md="5">
         <v-card class="rounded-lg mt-3 elevation-13">
-          <v-toolbar dark color="primary">
+          <v-toolbar dark color="success">
             <v-toolbar-title>Register</v-toolbar-title>
           </v-toolbar>
 
@@ -33,7 +33,7 @@
               ></v-file-input>
 
               <div class="text-xs-center">
-                <v-btn @click.prevent="submit" type="submit" color="primary" :disabled="!valid" class="white--text rounded-lg" block>
+                <v-btn @click.prevent="submit" type="submit" color="success" :disabled="!valid" class="white--text rounded-lg" block>
                   Register
                   <v-icon right dark>mdi-lock-open</v-icon>
                 </v-btn>
