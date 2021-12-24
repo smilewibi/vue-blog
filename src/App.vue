@@ -22,7 +22,7 @@
             <v-icon left color="blue">mdi-lock</v-icon>
             login
           </v-btn>
-          <v-btn block color="success">
+          <v-btn block color="success" to="/register" @click="drawer = !drawer">
             <v-icon left>mdi-account</v-icon>
             Register
           </v-btn>
