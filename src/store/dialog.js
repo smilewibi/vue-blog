@@ -1,31 +1,31 @@
 export default {
-    namespaced: true,
-    state: {
-        status : false,
-        component: '',
-        params: {}
+  namespaced: true,
+  state: {
+    status: false,
+    component: '',
+    params: {},
+  },
+  mutations: {
+    setStatus: (state, status) => {
+      state.status = status;
     },
-    mutations: {
-        setStatus: (state, status) => {
-            state.status = status
-        },
-        setComponent: (state, {component,params}) => {
-            state.component = component
-            state.params = params
-        }
+    setComponent: (state, { component, params }) => {
+      state.component = component;
+      state.params = params;
     },
-    action: {
-        steStatus: ({commit}, status) => {
-            commit('setStatus', status)
-        },
-        setComponent: ({commit}, {component, params}) => {
-            commit('setComponent', {component, params})
-            commit('setStatus', true)
-        }
+  },
+  actions: {
+    setStatus: ({ commit }, status) => {
+      commit('setStatus', status);
     },
-    getters: {
-        status: state => state.status,
-        component: state =>state.component,
-        params: state => state.params,
-    }
-}
+    setComponent: ({ commit }, { component, params }) => {
+      commit('setComponent', { component, params });
+      commit('setStatus', true);
+    },
+  },
+  getters: {
+    status: (state) => state.status,
+    component: (state) => state.component,
+    params: (state) => state.params,
+  },
+};
