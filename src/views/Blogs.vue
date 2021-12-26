@@ -1,12 +1,23 @@
 <template>
   <v-container class="ma-0 pa-0" grid-list-sm>
     <!-- Form Dialog -->
-    <template v-if="!guest">
+    <template>
       <v-row class="d-flex justify-space-between mt-3">
         <v-subheader> All Blogs </v-subheader>
-        <v-dialog v-model="dialog" persistent max-width="600px">
+        <v-dialog
+          v-model="dialog"
+          persistent
+          max-width="600px"
+          v-if="!guest"
+        >
           <template v-slot:activator="{ on, attrs }">
-            <v-btn color="primary" dark v-bind="attrs" v-on="on">
+            <v-btn
+              class="mr-3"
+              color="primary"
+              dark
+              v-bind="attrs"
+              v-on="on"
+            >
               Add new blog <v-icon>mdi-plus</v-icon>
             </v-btn>
           </template>
@@ -82,7 +93,7 @@
 <script>
 import axios from 'axios';
 import BlogItemComponent from '../components/BlogItemComponent.vue';
-import { mapGetters } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
   data: () => ({
@@ -107,6 +118,9 @@ export default {
     }),
   },
   methods: {
+    ...mapActions({
+      setAlert: 'alert/set',
+    }),
     //Get Data
     go() {
       const config = {
@@ -151,7 +165,11 @@ export default {
         .then((response) => {
           this.clearForm();
           this.go();
-          alert(response.data.message);
+          this.setAlert({
+            status: true,
+            color: 'success',
+            text: 'Add data ' + response.data.message,
+          });
         })
         .catch((error) => {
           console.log(error);

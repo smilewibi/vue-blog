@@ -1,6 +1,11 @@
 <template>
   <div>
-    <v-card v-if="blog.id">
+    <div class="text-left">
+      <v-btn small text to="/" class="blue--text">
+        <v-icon>mdi-chevron-left</v-icon> Back
+      </v-btn>
+    </div>
+    <v-card v-if="blog.id" class="mt-3">
       <v-img
         :src="
           blog.photo
